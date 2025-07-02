@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Summarization Results</title>
+</head>
+<body>
+    {% include 'base.html' %}
+    <div class="container">
+        <h1>Summarization Results</h1>
+        <div id="loading" style="display: none;">Loading...</div>
+        <div class="results">
+            <h2>K-means Summary</h2>
+            <p>{{ kmeans_summary }}</p>
+            <h2>TextRank Summary</h2>
+            <p>{{ textrank_summary }}</p>
+            <h2>ROUGE Comparison</h2>
+            <p>ROUGE-1: {{ rouge_1 }}</p>
+            <p>ROUGE-2: {{ rouge_2 }}</p>
+            <p>ROUGE-L: {{ rouge_l }}</p>
+        </div>
+        <a href="{{ url_for('index') }}" class="btn">Go Back</a>
+    </div>
+    <script src="{{ url_for('static', filename='js/loader.js') }}"></script>
+</body>
+</html>

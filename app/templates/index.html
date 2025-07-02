@@ -1,0 +1,47 @@
+{% extends "base.html"%}
+{% block content %}
+    <div class="container">
+        <!-- <h1>Vietnamese Text Summarizer</h1> -->
+        <form id="summarization-form" method="POST" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                <label for="text-input" style="font-weight: bold;">Nhập nội dung:</label>
+                <textarea id="text-input" name="text_input" rows="10" placeholder="Paste your Vietnamese text here...">{{ form.text_input.data if form.text_input.data }}</textarea>
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="file-upload">Or Upload a File:</label>
+                <input type="file" id="file-upload" name="file_upload">
+            </div> -->
+
+            <div style="margin-bottom: 10px;">
+                <label for="summary_level">Lựa chọn mức độ tóm tắt:</label>
+                <select id="summary-level" name="summary_level">
+                    <option value="" disabled selected>Vui lòng chọn mức độ</option>
+                    <option value="short">Ngắn</option>
+                    <option value="medium">Trung bình</option>
+                    <option value="long">Dài</option>
+                </select>
+            </div>
+            <button type="submit" id="summarize-button">Tóm tắt</button>
+            <div id="loading-indicator" style="display:none;">Loading...</div>
+        </form>
+
+        <div id="summary-results" style="display:show;">
+            <h2>Kết quả tóm tắt</h2>
+            <div id="centroidbased-summary">
+                <h3>Centroid-based</h3>
+                <p id="centroidbased-output">{{centroidbased_summary}}</p>
+            </div>
+            <div id="kmeans-summary">
+                <h3>K-Means</h3>
+                <p id="kmeans-output">{{kmeans_summary}}</p>
+            </div>
+            <div id="textrank-summary">
+                <h3>TextRank</h3>
+                <p id="textrank-output">{{textrank_summary}}</p>
+            </div>
+            
+        </div>
+    </div>
+{%endblock%}
