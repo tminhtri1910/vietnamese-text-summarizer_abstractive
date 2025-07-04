@@ -1,12 +1,12 @@
 # Vietnamese Text Summarizer
 
-This project is a web application built with Flask that provides summarization capabilities for Vietnamese text. It allows users to input text directly or upload files, and it utilizes K-means and TextRank algorithms to generate summaries. The application also evaluates the summaries using ROUGE metrics.
+This project is a web application built with Flask that provides advanced summarization capabilities for Vietnamese text. It allows users to input text directly or upload files, and it utilizes state-of-the-art pre-trained models—ViT5 and BARTpho—to generate high-quality summaries. The application also evaluates the summaries using ROUGE metrics.
 
 ## Features
 
 - Text area for direct input of Vietnamese text.
 - File upload capability for summarizing text from documents.
-- Summarization using K-means and TextRank methods.
+- Summarization using ViT5 and BARTpho transformer-based models.
 - ROUGE measure comparison to evaluate the quality of summaries.
 - Loading indicator to enhance user experience during processing.
 - Modular design allowing for the addition of new summarization methods and improvements in Vietnamese language processing.
@@ -50,7 +50,7 @@ This project is a web application built with Flask that provides summarization c
 
 3. Use the text area to input Vietnamese text or upload a file containing text.
 
-4. Click the "Summarize" button to generate summaries using the selected methods.
+4. Click the "Summarize" button to generate summaries using the selected model (ViT5 or BARTpho).
 
 5. View the results, including the generated summaries and ROUGE score comparisons.
 

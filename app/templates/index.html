@@ -14,7 +14,7 @@
                 <input type="file" id="file-upload" name="file_upload">
             </div> -->
 
-            <div style="margin-bottom: 10px;">
+            <div style="margin-bottom: 10px; display:none">
                 <label for="summary_level">Lựa chọn mức độ tóm tắt:</label>
                 <select id="summary-level" name="summary_level">
                     <option value="" disabled selected>Vui lòng chọn mức độ</option>
@@ -40,6 +40,10 @@
             <div id="textrank-summary">
                 <h3>TextRank</h3>
                 <p id="textrank-output">{{textrank_summary}}</p>
+            </div>
+            <div id="vit5-summary">
+                <h3>ViT5</h3>
+                <p id="vit5-output">{{vit5_summary}}</p>
             </div>
             
         </div>
