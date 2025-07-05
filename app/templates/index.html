@@ -27,9 +27,10 @@
             <div id="loading-indicator" style="display:none;">Loading...</div>
         </form>
 
-        <div id="summary-results" style="display:show;">
-            <h2>Kết quả tóm tắt</h2>
-            <div id="centroidbased-summary">
+        <h2>Kết quả tóm tắt</h2>
+
+        <div id="summary-results" style="display: flex; flex-direction: row; ">
+            <!-- <div id="centroidbased-summary">
                 <h3>Centroid-based</h3>
                 <p id="centroidbased-output">{{centroidbased_summary}}</p>
             </div>
@@ -40,10 +41,14 @@
             <div id="textrank-summary">
                 <h3>TextRank</h3>
                 <p id="textrank-output">{{textrank_summary}}</p>
-            </div>
+            </div> -->
             <div id="vit5-summary">
                 <h3>ViT5</h3>
                 <p id="vit5-output">{{vit5_summary}}</p>
+            </div>
+            <div id="bartpho-summary">
+                <h3>BARTpho</h3>
+                <p id="bartpho-output">{{bartpho_summary}}</p>
             </div>
             
         </div>
