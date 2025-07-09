@@ -27,6 +27,7 @@ footer{
     background: #a7a7a7;
     text-align: center;
     margin-top: auto;
+    height: 6vh;
 }
 
 h1 {
@@ -71,8 +72,9 @@ button:hover {
 
 #summary-results > div{
     flex:1;
-    margin-right: 30px;
     box-sizing: border-box;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .results {

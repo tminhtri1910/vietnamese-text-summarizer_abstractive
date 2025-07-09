@@ -16,7 +16,7 @@ app = Blueprint('app', __name__, template_folder='templates')
 tokenizer_t5 = AutoTokenizer.from_pretrained(r"app\data\vit5model_1\vit5model_1")
 model_t5 = AutoModelForSeq2SeqLM.from_pretrained(r"app\data\vit5model_1\vit5model_1")
 
-tokenizer_bartpho = AutoTokenizer.from_pretrained(r"app\data\vit5model_1\vit5model_1")
+tokenizer_bartpho = AutoTokenizer.from_pretrained(r"app\data\bartphomodel_1\bartphomodel_1")
 model_bartpho = AutoModelForSeq2SeqLM.from_pretrained(r"app\data\bartphomodel_1\bartphomodel_1")
 
 
