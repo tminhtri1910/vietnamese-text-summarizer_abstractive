@@ -5,11 +5,14 @@ from app.summarizers.textrank import TextRankSummarizer
 from app.summarizers.centroidbased import CentroidBasedSummarizer
 from app.summarizers.vit5 import Vit5Summarizer
 from app.summarizers.bartpho import BARTphoSummarizer
+from app.summarizers.preprocessing import split_into_sentences
 
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from app.evaluation.rouge import calculate_rouge
 import os
 import flash
+
+import time
 
 app = Blueprint('app', __name__, template_folder='templates')
 
@@ -25,6 +28,7 @@ def index():
     form = SummarizationForm()
     text = kmeans_summary = textrank_summary = centroidbased_summary = ""
     vit5_summary = bartpho_summary = ""
+    len_text = len_vit5 = len_bartpho = time_excute = ""
     ratio = 1
 
     # if form.validate_on_submit():
@@ -76,8 +80,16 @@ def index():
         # kmeans_summary = kmeans_summarizer.summarize(text, ratio)
         # textrank_summary = textrank_summarizer.summarize(text, ratio)
         # centroidbased_summary = centroidbased_summarizer.summarize(text, ratio)
+        start = time.time()
         vit5_summary = vit5_summarizer.summarize(text, tokenizer_t5, model_t5)
         bartpho_summary = bartpho_summarizer.summarize(text, tokenizer_bartpho, model_bartpho)
+        end = time.time()
+        time_excute = format_time(end - start)
+
+        len_text = f"({len(split_into_sentences(text))} câu)"
+        len_vit5 = f"{len(split_into_sentences(vit5_summary))} câu"
+        len_bartpho = f"{len(split_into_sentences(bartpho_summary))} câu"
+        
 
     return render_template('index.html', 
                             form=form, 
@@ -86,5 +98,14 @@ def index():
                             # textrank_summary = textrank_summary,
                             # centroidbased_summary = centroidbased_summary,
                             vit5_summary = vit5_summary,
-                            bartpho_summary = bartpho_summary
+                            bartpho_summary = bartpho_summary,
+                            len_text = len_text, 
+                            len_vit5 = len_vit5,
+                            len_bartpho = len_bartpho,
+                            time_excute = time_excute
                             )
+def format_time(seconds):
+    minutes = int(seconds // 60)
+    sec = int(seconds % 60)
+    # millis = int((seconds - int(seconds)) * 1000)
+    return f"(~{minutes:02d} phút {sec:02d} giây)"

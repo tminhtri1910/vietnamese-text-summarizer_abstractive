@@ -5,7 +5,7 @@
         <form id="summarization-form" method="POST" enctype="multipart/form-data">
             {{ form.csrf_token }}
             <div class="form-group">
-                <label for="text-input" style="font-weight: bold;">Nhập nội dung:</label>
+                <label for="text-input" style="font-weight: bold; font-size: large;">Nhập nội dung: {{len_text}}</label>
                 <textarea id="text-input" name="text_input" rows="15" placeholder="Paste your Vietnamese text here...">{{ form.text_input.data if form.text_input.data }}</textarea>
             </div>
 
@@ -27,7 +27,7 @@
             <div id="loading-indicator" style="display:none;">Loading...</div>
         </form>
 
-        <h2>Kết quả tóm tắt</h2>
+        <h2>Kết quả tóm tắt {{time_excute}}</h2>
 
         <div id="summary-results" style="display: flex; flex-direction: row; ">
             <!-- <div id="centroidbased-summary">
@@ -43,11 +43,11 @@
                 <p id="textrank-output">{{textrank_summary}}</p>
             </div> -->
             <div id="vit5-summary" style="margin-right: 30px;">
-                <h3>ViT5</h3>
+                <h3>ViT5: {{len_vit5}}</h3>
                 <p id="vit5-output">{{vit5_summary}}</p>
             </div>
             <div id="bartpho-summary">
-                <h3>BARTpho</h3>
+                <h3>BARTpho: {{len_bartpho}}</h3>
                 <p id="bartpho-output">{{bartpho_summary}}</p>
             </div>
             

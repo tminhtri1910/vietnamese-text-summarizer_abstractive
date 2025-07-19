@@ -23,7 +23,7 @@ class BARTphoSummarizer:
                 attention_mask=attention_mask,
                 num_beams=4,
                 max_length=1024,
-                # no_repeat_ngram_size=10,
+                no_repeat_ngram_size=5,
                 early_stopping=True,
             )
         # print(len(output_ids[0]))
@@ -31,8 +31,8 @@ class BARTphoSummarizer:
         summary = tokenizer.decode(output_ids[0], skip_special_tokens=True, clean_up_tokenization_spaces=True)
         summary = summary.replace('_', ' ')
         summary = re.sub(r'"\s*([^"]*?)\s*"', r'"\1"', summary)
-        # summary = re.sub(r'\(\s*([^)]*?)\s*\)', r'(\1)', summary)
-        # summary = re.sub(r'\s+([/%;:])', r'\1', summary)
+        summary = re.sub(r'\(\s*([^)]*?)\s*\)', r'(\1)', summary)
+        summary = re.sub(r'\s+([/%;:])', r'\1', summary)
 
 
         return summary

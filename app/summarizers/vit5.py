@@ -21,7 +21,7 @@ class Vit5Summarizer:
                 attention_mask=attention_mask,
                 num_beams=4,
                 max_length=1024,
-                no_repeat_ngram_size=20,
+                no_repeat_ngram_size=5,
                 early_stopping=True,
             )
         # print(len(output_ids[0]))
