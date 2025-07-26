@@ -2,6 +2,9 @@
 
 This project is a web application built with Flask that provides advanced summarization capabilities for Vietnamese text. It allows users to input text directly or upload files, and it utilizes state-of-the-art pre-trained models—ViT5 and BARTpho—to generate high-quality summaries. The application also evaluates the summaries using ROUGE metrics.
 
+<img width="1508" height="684" alt="image" src="https://github.com/user-attachments/assets/381e9c7b-abbf-4eed-b006-876efafdc3df" />
+
+
 ## Features
 
 - Text area for direct input of Vietnamese text.
