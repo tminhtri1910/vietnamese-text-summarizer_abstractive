@@ -8,9 +8,7 @@ This project is a web application built with Flask that provides advanced summar
 ## Features
 
 - Text area for direct input of Vietnamese text.
-- File upload capability for summarizing text from documents.
 - Summarization using ViT5 and BARTpho transformer-based models.
-- ROUGE measure comparison to evaluate the quality of summaries.
 - Loading indicator to enhance user experience during processing.
 - Modular design allowing for the addition of new summarization methods and improvements in Vietnamese language processing.
 
